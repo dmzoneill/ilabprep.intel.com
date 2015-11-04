@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^ovf/(.*)$ /ovf.php?q=$1 [L]
+RewriteRule ^video/(.*)$ /video.php?q=$1 [L]
+RewriteRule ^api/(.*)$ /api.php?q=$1 [L]
+RewriteRule ^go/(.*)$ /go.php?q=$1 [L]
+RewriteRule ^download/(.*)$ /download.php?q=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(index\.php|images|css|js|robots\.txt|favicon\.ico)
+RewriteRule ^(.*)$ index.php/$1 [L]
